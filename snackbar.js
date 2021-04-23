@@ -4,48 +4,81 @@ class Snackbar {
    * @param {string} text
    * @param {number} duration
    */
-  constructor(text, duration = 3000) {
+  constructor(text, duration = 5000) {
     this.text = text;
     this.duration = duration;
-    this.closeText = "Schließen";
+    this.closeText = "Ok";
   }
 
-  init() {
+  exist() {
+    return document.querySelector(".snackbar") !== null;
+  }
+
+  dismiss() {
+    var dismiss = setInterval(() => {
+      document.querySelector(".snackbar").remove();
+      clearInterval(dismiss);
+    }, this.duration);
+
+    document.querySelector(".snackbar .dismiss").addEventListener("click", function () {
+      document.querySelector(".snackbar").remove();
+      clearInterval(dismiss);
+    });
+  }
+
+  createSnackbar() {
     // <div class="snackbar bottom-right">
-    //   <p class="text">${this.text}</p>
+    //   <i class="snackbar-icon far fa-check-circle"></i>
+    //   <p class="snackbar-text">${this.text}</p>
     //   <div class="button-container">
-    //     <button class="dismiss">CLOSE</button>
+    //     <button class="dismiss">{this.closeText}</button>
     //   </div>
     // </div>
 
-    // Check if there is already an snackbar which is shown
-    if (document.querySelector(".snackbar") == null) {
-      var container = document.createElement("div");
-      container.classList.add("snackbar", "bottom-right");
-      var text = document.createElement("p");
-      text.classList.add("text");
-      text.innerText = this.text;
-      var btnContainer = document.createElement("div");
-      btnContainer.classList.add("button-container");
-      var dismissBtn = document.createElement("button");
-      dismissBtn.classList.add("dismiss");
-      dismissBtn.innerHTML = this.closeText.toUpperCase();
+    var container = document.createElement("div");
+    container.classList.add("snackbar", "bottom-right");
+    var icon = document.createElement("i");
+    icon.classList.add("snackbar-icon");
+    var text = document.createElement("p");
+    text.classList.add("snackbar-text");
+    text.innerText = this.text;
+    var btnContainer = document.createElement("div");
+    btnContainer.classList.add("button-container");
+    var dismissBtn = document.createElement("button");
+    dismissBtn.classList.add("dismiss");
+    dismissBtn.innerHTML = this.closeText.toUpperCase();
 
-      btnContainer.appendChild(dismissBtn);
-      container.appendChild(text);
-      container.appendChild(btnContainer);
-      document.body.appendChild(container);
+    btnContainer.appendChild(dismissBtn);
+    container.appendChild(icon);
+    container.appendChild(text);
+    container.appendChild(btnContainer);
+    document.body.appendChild(container);
+  }
 
-      // Remove the snackbar after the delay
-      var dismiss = setInterval(() => {
-        document.querySelector(".snackbar").remove();
-        clearInterval(dismiss);
-      }, this.duration);
+  success() {
+    if (!this.exist()) {
+      this.createSnackbar();
+      document.querySelector(".snackbar").classList.add("snackbar-success");
+      document.querySelector(".snackbar .snackbar-icon").classList.add("far", "fa-check-circle");
+      this.dismiss();
+    }
+  }
 
-      document.querySelector(".snackbar .dismiss").addEventListener("click", function () {
-        document.querySelector(".snackbar").remove();
-        clearInterval(dismiss);
-      });
+  info() {
+    if (!this.exist()) {
+      this.createSnackbar();
+      document.querySelector(".snackbar").classList.add("snackbar-info");
+      document.querySelector(".snackbar .snackbar-icon").classList.add("fas", "fa-info-circle");
+      this.dismiss();
+    }
+  }
+
+  error() {
+    if (!this.exist()) {
+      this.createSnackbar();
+      document.querySelector(".snackbar").classList.add("snackbar-error");
+      document.querySelector(".snackbar .snackbar-icon").classList.add("far", "fa-times-circle");
+      this.dismiss();
     }
   }
 }

@@ -1,17 +1,28 @@
+:root {
+  --maxWidth: 350px !important;
+  --width: 350px !important;
+  --backgroundColor: #333 !important;
+  --success: #28a745 !important;
+  --info: #007bff !important;
+  --error: #dc3545 !important;
+  --borderRadius: 8px !important;
+  --text: rgba(255, 255, 255, 0.8) !important;
+  --buttonHover: rgba(255, 255, 255, 0.15) !important;
+}
+
 .snackbar {
   z-index: 1200 !important;
   position: fixed;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 350px;
-  max-width: 350px;
+  width: var(--width);
+  max-width: var(--maxWidth);
   padding: 0.5rem 1rem !important;
   font-family: "Open Sans", sans-serif !important;
-  background-color: #333;
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  background-color: var(--backgroundColor);
+  border-radius: var(--borderRadius);
 }
+
 .snackbar.top-left {
   top: 1rem;
   left: 1rem;
@@ -30,8 +41,33 @@
 }
 .snackbar .button-container {
   display: flex;
+  flex: 1;
   align-items: center;
+  justify-content: flex-end;
   margin-left: 0.25rem;
+}
+
+.snackbar.snackbar-success .snackbar-icon,
+.snackbar.snackbar-success .dismiss {
+  color: var(--success);
+}
+.snackbar.snackbar-info .snackbar-icon,
+.snackbar.snackbar-info .dismiss {
+  color: var(--info);
+}
+.snackbar.snackbar-error .snackbar-icon,
+.snackbar.snackbar-error .dismiss {
+  color: var(--error);
+}
+
+.snackbar-icon {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--success);
+}
+.snackbar-text {
+  font-size: 1rem;
+  color: var(--text);
 }
 .snackbar button {
   transition: 150ms;
@@ -41,30 +77,28 @@
 }
 .snackbar button:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: var(--buttonHover);
 }
 .snackbar .dismiss {
-  padding: 0.3rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-weight: 600;
-  color: #28a745;
-  border-radius: 8px;
+  color: var(--success);
+  border-radius: var(--borderRadius);
 }
 
 @media (max-width: 689px) {
-  /* .snackbar {
-    width: calc(100% - 2rem) !important;
-    max-width: calc(100% - 2rem) !important;
+  .snackbar {
+    max-width: unset;
+    width: unset;
     left: 1rem;
     right: 1rem;
     bottom: 1rem;
-  } */
+  }
   /* Which style should we use for mobile devices? */
-  .snackbar {
-    width: calc(100%);
-    max-width: calc(100%);
-    left: 0 !important;
-    right: 0 !important;
+  /* .snackbar {
+    left: 0;
+    right: 0;
     bottom: 0 !important;
     border-radius: 0;
-  }
+  } */
 }

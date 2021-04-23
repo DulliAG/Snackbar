@@ -10,14 +10,22 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="./snackbar.css" />
   </head>
   <body>
     <button id="call-snackbar">Call snackbar</button>
-    <!-- <div class="snackbar bottom-right">
-      <p class="text">This is just a simple test and we need some more text</p>
+    <!-- <div class="snackbar snackbar-success bottom-right">
+      <i class="snackbar-icon far fa-check-circle"></i>
+      <p class="snackbar-text">This is just a simple test and we need some more text</p>
       <div class="button-container">
-        <button class="dismiss">CLOSE</button>
+        <button class="dismiss">Ok</button>
       </div>
     </div> -->
     <script src="./snackbar.js"></script>
@@ -26,7 +34,8 @@
       document.querySelector("#call-snackbar").addEventListener("click", function (e) {
         console.log("Fire snackbar");
         // ERROR Why can't we append a second snackbar?
-        new Snackbar("This is just a simple test", 3000).init();
+        // new Snackbar("This is just a simple test", 3000).init();
+        new Snackbar("This is just a simple test", 3000).success();
       });
     </script>
   </body>
