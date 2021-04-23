@@ -1,13 +1,13 @@
 :root {
-  --maxWidth: 350px !important;
-  --width: 350px !important;
-  --backgroundColor: #333 !important;
-  --success: #28a745 !important;
-  --info: #007bff !important;
-  --error: #dc3545 !important;
-  --borderRadius: 8px !important;
-  --text: rgba(255, 255, 255, 0.8) !important;
-  --buttonHover: rgba(255, 255, 255, 0.15) !important;
+  --maxWidth: 350px;
+  --width: 350px;
+  --backgroundColor: #333;
+  --success: #28a745;
+  --info: #007bff;
+  --error: #dc3545;
+  --borderRadius: 8px;
+  --text: rgba(255, 255, 255, 0.8);
+  --buttonHover: rgba(255, 255, 255, 0.15);
 }
 
 .snackbar {
@@ -15,12 +15,12 @@
   position: fixed;
   display: flex;
   align-items: center;
-  width: var(--width);
-  max-width: var(--maxWidth);
-  padding: 0.5rem 1rem !important;
+  width: var(--width) !important;
+  max-width: var(--maxWidth) !important;
+  padding: 0.6rem !important;
   font-family: "Open Sans", sans-serif !important;
-  background-color: var(--backgroundColor);
-  border-radius: var(--borderRadius);
+  background-color: var(--backgroundColor) !important;
+  border-radius: var(--borderRadius) !important;
 }
 
 .snackbar.top-left {
@@ -42,32 +42,32 @@
 .snackbar .button-container {
   display: flex;
   flex: 1;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: center;
   margin-left: 0.25rem;
 }
 
 .snackbar.snackbar-success .snackbar-icon,
 .snackbar.snackbar-success .dismiss {
-  color: var(--success);
+  color: var(--success) !important;
 }
 .snackbar.snackbar-info .snackbar-icon,
 .snackbar.snackbar-info .dismiss {
-  color: var(--info);
+  color: var(--info) !important;
 }
 .snackbar.snackbar-error .snackbar-icon,
 .snackbar.snackbar-error .dismiss {
-  color: var(--error);
+  color: var(--error) !important;
 }
 
 .snackbar-icon {
   margin-right: 0.75rem;
   font-size: 1.5rem;
-  color: var(--success);
+  color: var(--success) !important;
 }
 .snackbar-text {
   font-size: 1rem;
-  color: var(--text);
+  color: var(--text) !important;
 }
 .snackbar button {
   transition: 150ms;
@@ -77,13 +77,13 @@
 }
 .snackbar button:hover {
   cursor: pointer;
-  background-color: var(--buttonHover);
+  background-color: var(--buttonHover) !important;
 }
 .snackbar .dismiss {
   padding: 0.5rem 0.75rem;
   font-weight: 600;
-  color: var(--success);
-  border-radius: var(--borderRadius);
+  color: var(--success) !important;
+  border-radius: var(--borderRadius) !important;
 }
 
 @media (max-width: 689px) {
