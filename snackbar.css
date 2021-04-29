@@ -8,6 +8,108 @@
   --borderRadius: 8px;
   --text: rgba(255, 255, 255, 0.8);
   --buttonHover: rgba(255, 255, 255, 0.15);
+  --animationInName: fadeInToLeft;
+  --animationOutName: fadeOutToRight;
+  --animationFillMode: both;
+  --animationDuration: 0.3s;
+}
+
+@-webkit-keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+@-moz-keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+@keyframes fadeInToLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+
+@-webkit-keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+}
+@-moz-keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+}
+@keyframes fadeOutToRight {
+  from {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translatex(100px);
+    -moz-transform: translatex(100px);
+    -o-transform: translatex(100px);
+    transform: translatex(100px);
+  }
 }
 
 .snackbar {
@@ -21,6 +123,40 @@
   font-family: "Open Sans", sans-serif !important;
   background-color: var(--backgroundColor) !important;
   border-radius: var(--borderRadius) !important;
+  -webkit-animation-name: var(--animationInName);
+  -moz-animation-name: var(--animationInName);
+  -o-animation-name: var(--animationInName);
+  animation-name: var(--animationInName);
+  -webkit-animation-fill-mode: var(--animationFillMode);
+  -moz-animation-fill-mode: var(--animationFillMode);
+  -o-animation-fill-mode: var(--animationFillMode);
+  animation-fill-mode: var(--animationFillMode);
+  -webkit-animation-duration: var(--animationDuration);
+  -moz-animation-duration: var(--animationDuration);
+  -o-animation-duration: var(--animationDuration);
+  animation-duration: var(--animationDuration);
+  -webkit-animation-delay: var(--animationDuration);
+  -moz-animation-delay: var(--animationDuration);
+  -o-animation-duration: var(--animationDuration);
+  animation-delay: var(--animationDuration);
+}
+.snackbar.fadeOut {
+  -webkit-animation-name: var(--animationOutName);
+  -moz-animation-name: var(--animationOutName);
+  -o-animation-name: var(--animationOutName);
+  animation-name: var(--animationOutName);
+  -webkit-animation-fill-mode: var(--animationFillMode);
+  -moz-animation-fill-mode: var(--animationFillMode);
+  -o-animation-fill-mode: var(--animationFillMode);
+  animation-fill-mode: var(--animationFillMode);
+  -webkit-animation-duration: var(--animationDuration);
+  -moz-animation-duration: var(--animationDuration);
+  -o-animation-duration: var(--animationDuration);
+  animation-duration: var(--animationDuration);
+  -webkit-animation-delay: var(--animationDuration);
+  -moz-animation-delay: var(--animationDuration);
+  -o-animation-duration: var(--animationDuration);
+  animation-delay: var(--animationDuration);
 }
 
 .snackbar.top-left {
@@ -42,8 +178,8 @@
 .snackbar .button-container {
   display: flex;
   flex: 1;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
   margin-left: 0.25rem;
 }
 
@@ -66,6 +202,7 @@
   color: var(--success) !important;
 }
 .snackbar-text {
+  margin: 0.5rem 0 !important;
   font-size: 1rem;
   color: var(--text) !important;
 }

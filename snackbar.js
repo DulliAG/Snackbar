@@ -16,13 +16,19 @@ class Snackbar {
 
   dismiss() {
     var dismiss = setInterval(() => {
-      document.querySelector(".snackbar").remove();
-      clearInterval(dismiss);
+      document.querySelector(".snackbar").classList.add("fadeOut");
+      setTimeout(() => {
+        document.querySelector(".snackbar").remove();
+        clearInterval(dismiss);
+      }, 1000);
     }, this.duration);
 
     document.querySelector(".snackbar .dismiss").addEventListener("click", function () {
-      document.querySelector(".snackbar").remove();
-      clearInterval(dismiss);
+      document.querySelector(".snackbar").classList.add("fadeOut");
+      setTimeout(() => {
+        document.querySelector(".snackbar").remove();
+        clearInterval(dismiss);
+      }, 1000);
     });
   }
 

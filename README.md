@@ -35,15 +35,19 @@ constructor(text, duration = 5000/* This is the default time in milliseconds the
 
 ```css
 :root {
-  --maxWidth: 350px !important;
-  --width: 350px !important;
-  --backgroundColor: #333 !important;
-  --success: #28a745 !important;
-  --info: #007bff !important;
-  --error: #dc3545 !important;
-  --borderRadius: 8px !important;
-  --text: rgba(255, 255, 255, 0.8) !important;
-  --buttonHover: rgba(255, 255, 255, 0.15) !important;
+  --maxWidth: 350px;
+  --width: 350px;
+  --backgroundColor: #333;
+  --success: #28a745;
+  --info: #007bff;
+  --error: #dc3545;
+  --borderRadius: 8px;
+  --text: rgba(255, 255, 255, 0.8);
+  --buttonHover: rgba(255, 255, 255, 0.15);
+  --animationInName: fadeInToLeft;
+  --animationOutName: fadeOutToRight;
+  --animationFillMode: both;
+  --animationDuration: 0.3s;
 }
 ```
 
